@@ -19,7 +19,7 @@ class Solution {
                     ans.append("?");
                 }
                 bracket=false;
-                sb= new StringBuilder();
+                sb.setLength(0);
                 continue;
             }
             if(bracket && s.charAt(i)!='(' ){
