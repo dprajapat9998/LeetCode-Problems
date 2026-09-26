@@ -6,10 +6,10 @@ class Solution {
         }
         StringBuilder sb = new StringBuilder();
         StringBuilder ans=new StringBuilder();
-        Stack<Character> stack = new Stack<>();
+        boolean bracket=false;
         for(int i=0;i<s.length();i++){
             if(s.charAt(i)=='('){
-                stack.push(s.charAt(i));
+                bracket=true;
                 continue;
             }
             else if(s.charAt(i)==')'){
@@ -18,11 +18,11 @@ class Solution {
                 }else{
                     ans.append("?");
                 }
-                stack.pop();
+                bracket=false;
                 sb= new StringBuilder();
                 continue;
             }
-            if(!stack.isEmpty() && s.charAt(i)!='(' ){
+            if(bracket && s.charAt(i)!='(' ){
                 sb.append(s.charAt(i));
             }else{
                  ans.append(s.charAt(i));
