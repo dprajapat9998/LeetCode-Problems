@@ -10,7 +10,6 @@ class Solution {
         for(int i=0;i<s.length();i++){
             if(s.charAt(i)=='('){
                 bracket=true;
-                continue;
             }
             else if(s.charAt(i)==')'){
                 if(map.containsKey(sb.toString())){
@@ -20,9 +19,8 @@ class Solution {
                 }
                 bracket=false;
                 sb.setLength(0);
-                continue;
             }
-            if(bracket && s.charAt(i)!='(' ){
+            else if(bracket){
                 sb.append(s.charAt(i));
             }else{
                  ans.append(s.charAt(i));
