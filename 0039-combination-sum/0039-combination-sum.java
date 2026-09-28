@@ -1,8 +1,7 @@
 class Solution {
     List<List<Integer>> ans = new ArrayList<>();
     public void solve(int[] c, int i,int t,List<Integer> arr){
-        if(i>=c.length) return;
-        if(t<0) return ;
+        if(i>=c.length || t<0) return;
         if(t==0){
             ans.add(new ArrayList<>(arr));
             return;
