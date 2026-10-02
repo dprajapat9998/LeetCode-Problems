@@ -20,12 +20,17 @@ class Solution {
             return;
         }
         if(open>n || close>open) return;
+
+        if(open<n){
         sb.append('(');
         solve(n, sb, list,open+1,close);
         sb.deleteCharAt(sb.length() - 1);
+        }
+        if(open>close){
         sb.append(')');
         solve(n, sb, list,open,close+1);
         sb.deleteCharAt(sb.length() - 1);
+        }
     }
 
     public List<String> generateParenthesis(int n) {
