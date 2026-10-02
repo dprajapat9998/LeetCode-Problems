@@ -12,24 +12,25 @@ class Solution {
         }
          return count==0;
     }
-    public void solve(int n, StringBuilder sb, List<String> list) {
+    public void solve(int n, StringBuilder sb, List<String> list,int open) {
         if (sb.length() == n * 2) {
             if(isValid(sb)){
                 list.add(sb.toString());
             }
             return;
         }
+        if(open>n) return;
         sb.append('(');
-        solve(n, sb, list);
+        solve(n, sb, list,open+1);
         sb.deleteCharAt(sb.length() - 1);
         sb.append(')');
-        solve(n, sb, list);
+        solve(n, sb, list,open);
         sb.deleteCharAt(sb.length() - 1);
     }
 
     public List<String> generateParenthesis(int n) {
         List<String> list = new ArrayList<>();
-        solve(n, new StringBuilder(), list);
+        solve(n, new StringBuilder(), list,0);
         return list;
     }
 }
