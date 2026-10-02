@@ -14,7 +14,7 @@ class Solution {
     }
     public void solve(int n, StringBuilder sb, List<String> list,int open,int close) {
         if (sb.length() == n * 2) {
-            if(isValid(sb)){
+            if(open==close){
                 list.add(sb.toString());
             }
             return;
