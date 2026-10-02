@@ -1,17 +1,4 @@
 class Solution {
-    public boolean isValid(StringBuilder sb){
-        if(sb.length()%2==1) return false;
-        int count=0;
-        for(int i=0;i<sb.length();i++){
-            if(sb.charAt(i)=='('){
-                count++;
-            }else {
-                count--;
-            }
-            if(count<0) return false;
-        }
-         return count==0;
-    }
     public void solve(int n, StringBuilder sb, List<String> list,int open,int close) {
         if (sb.length() == n * 2) {
             if(open==close){
