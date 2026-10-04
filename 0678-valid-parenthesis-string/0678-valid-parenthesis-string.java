@@ -17,8 +17,10 @@ class Solution {
             if(solve(sb,i+1,count+1,dp)){
                 return dp[i][count] = true;
             }
+            if(count>0){
             if(solve(sb,i+1,count-1,dp)){
                 return dp[i][count] = true;
+            }
             }
           }else{
             if(sb.charAt(i)=='('){
