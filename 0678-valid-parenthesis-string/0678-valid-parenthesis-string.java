@@ -6,34 +6,25 @@ class Solution {
           if(i>=sb.length()){
                return dp[i][count] = count==0;
           }
-          
+          boolean valid=false;
           if(dp[i][count]!=null){
             return dp[i][count];
           }
           if(sb.charAt(i)=='*'){
-            if(solve(sb,i+1,count,dp)){
-                return dp[i][count] = true;
-            }
-            if(solve(sb,i+1,count+1,dp)){
-                return dp[i][count] = true;
-            }
+            valid =solve(sb,i+1,count,dp) || solve(sb,i+1,count+1,dp);
             if(count>0){
-            if(solve(sb,i+1,count-1,dp)){
-                return dp[i][count] = true;
+            valid = valid || solve(sb,i+1,count-1,dp);
             }
-            }
+            
           }else{
             if(sb.charAt(i)=='('){
-                if(solve(sb,i+1,count+1,dp)){
-                    return dp[i][count] = true;
-                }
+                valid = solve(sb,i+1,count+1,dp);
+                
             }else{
-                if(solve(sb,i+1,count-1,dp)){
-                    return dp[i][count] =true;
-                }
+                valid = solve(sb,i+1,count-1,dp); 
             }
           }
-          return dp[i][count] = false;
+          return dp[i][count]=valid;
     }
     public boolean checkValidString(String s) {
         Boolean[][] dp = new Boolean[s.length()+1][101];
