@@ -34,7 +34,7 @@ class Solution {
           return dp[i][count] = false;
     }
     public boolean checkValidString(String s) {
-        Boolean[][] dp = new Boolean[s.length()+1][1000];
+        Boolean[][] dp = new Boolean[s.length()+1][101];
         return solve(new StringBuilder(s),0,0,dp);
         
     }
