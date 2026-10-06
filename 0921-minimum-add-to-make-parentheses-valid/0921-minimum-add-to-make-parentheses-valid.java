@@ -5,7 +5,7 @@ class Solution {
         for(int i=0;i<s.length();i++){
             if(s.charAt(i)=='('){
                 open++;
-            }else if(s.charAt(i)==')' && open==0){
+            }else if(open==0){
                 ans++;
             }else{
                 open--;
