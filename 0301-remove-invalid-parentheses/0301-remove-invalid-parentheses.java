@@ -3,8 +3,12 @@ class Solution {
     public void solve(String s, Set<String> list, int i, StringBuilder sb, int open) {
         if (i >= s.length()) {
             if (open == 0) {
-                    max = Math.max(max,sb.length());
+                if (sb.length() > max) {
+                    max = sb.length();
                     list.add(sb.toString());
+                } else if (sb.length() == max ) {
+                    list.add(sb.toString());
+                }
             }
             return;
         }
@@ -34,7 +38,7 @@ class Solution {
         Set<String> set = new HashSet<>();
         solve(s, set, 0, new StringBuilder(), 0);
         for(String s1: set){
-            if(s1!="" && s1.length()==max)
+            if(s1!="")
             list.add(s1);
         }
         if (list.size() == 0) {
