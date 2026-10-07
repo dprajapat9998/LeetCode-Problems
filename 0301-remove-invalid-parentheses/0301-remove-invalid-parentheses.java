@@ -18,9 +18,7 @@ class Solution {
         }
         if (s.charAt(i) != '(' && s.charAt(i) != ')') {
             sb.append(s.charAt(i));
-
             solve(s, list, i + 1, sb, open);
-
             sb.deleteCharAt(sb.length() - 1);
             return;
         }
