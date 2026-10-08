@@ -3,14 +3,16 @@ class Solution {
         int count=0;
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<s.length();i++){
-           
             if(s.charAt(i)=='('){
+                if(count>0){
+                    sb.append(s.charAt(i));
+                }
                 count++;
             }else{
                 count--;
-            }
-             if(count>1 || (count>0 && s.charAt(i)==')') ){
-                sb.append(s.charAt(i));
+                if(count>0){
+                    sb.append(s.charAt(i));
+                }
             }
         }
         return sb.toString();
