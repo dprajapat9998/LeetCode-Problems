@@ -1,22 +1,10 @@
 class Solution {
-    public int fillCups(int[] nums) {
-        int ans=0;
-        PriorityQueue<Integer> q= new PriorityQueue<>(Collections.reverseOrder());
-        q.add(nums[0]);
-        q.add(nums[1]);
-        q.add(nums[2]);
-
-        while(q.peek()!=0){
-            int p1= q.poll();
-            int p2=q.poll();
-            p1--;
-            if(p2>0){
-                p2--;
-            }
-            q.add(p1);
-            q.add(p2);
-            ans++;
+    public int fillCups(int[] amount) {
+       int mx = 0, sum = 0;
+        for(int a: amount) {
+            mx = Math.max(a, mx);
+            sum += a;
         }
-        return ans;
+        return Math.max(mx, (sum + 1) / 2);
     }
 }
