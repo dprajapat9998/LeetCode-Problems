@@ -6,10 +6,15 @@ class Solution {
         boolean flag =true;
         char min ='z';
         char max='a';
-        for(int i=0;i<chars.length;i++){
-            if(s.charAt(i)!=chars[i]){
-                flag=false;
+         for(int i=1;i<chars.length;i++){
+            if (s.charAt(i) < s.charAt(i - 1)) {
+                flag = false;
             }
+         }
+          if(flag){
+            return 0;
+        }
+        for(int i=0;i<chars.length;i++){
             if(s.charAt(i)>max){
                 max=s.charAt(i);
             }
@@ -18,9 +23,7 @@ class Solution {
             }
             
         }
-        if(flag){
-            return 0;
-        }
+       
         if(s.length()==2){
             return -1;
         }
