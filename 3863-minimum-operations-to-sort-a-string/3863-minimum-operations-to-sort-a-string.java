@@ -2,7 +2,7 @@ class Solution {
     public int minOperations(String s) {
         
         char[] chars = s.toCharArray();
-        Arrays.sort(chars);
+        // Arrays.sort(chars);
         boolean flag =true;
         char min ='z';
         char max='a';
