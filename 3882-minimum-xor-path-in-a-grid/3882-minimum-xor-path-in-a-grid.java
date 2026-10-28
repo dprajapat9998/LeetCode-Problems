@@ -5,7 +5,7 @@ class Solution {
         
          if (i >= m || j >= n) {
             return Integer.MAX_VALUE;
-        }
+            }
             xor=xor ^ grid[i][j];
         if (i == m - 1 && j == n - 1) {
             return dp[i][j][xor]=xor;
