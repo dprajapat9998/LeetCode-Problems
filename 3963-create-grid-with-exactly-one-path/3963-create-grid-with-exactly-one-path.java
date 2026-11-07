@@ -3,18 +3,17 @@ class Solution {
         String[] arr = new String[m];
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<n;i++){
-            sb.append(".");
+            sb.append('.');
         }
         arr[0]=sb.toString();
         sb= new StringBuilder();
         for(int i=0;i<n-1;i++){
-            sb.append("#");
+            sb.append('#');
         }
-        sb.append(".");
+        sb.append('.');
         for(int i=1;i<m;i++){
             arr[i]=sb.toString();
         }
-        return  arr;
-
+        return arr;
     }
 }
