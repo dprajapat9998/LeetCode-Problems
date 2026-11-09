@@ -1,18 +1,29 @@
 class Solution {
-    public int countServers(int[][] grid) {
-        int m = grid.length, n = grid[0].length;
-        int[] rows = new int[m], cols = new int[n];  // servers on each row and column
-        for (int i = 0; i < m; i++)
-            for (int j = 0; j < n; j++) {
-                rows[i] += grid[i][j];
-                cols[j] += grid[i][j];
+    public boolean iscomunicate(int grid[][],int i,int j){
+        grid[i][j]=-1;
+        for(int k=0;k<grid.length;k++){
+            if(grid[k][j]==1){
+                grid[i][j]=1;
+                return true;
             }
-
-        int ans = 0;
-        for (int i = 0; i < m; i++)
-            for (int j = 0; j < n; j++)
-                if (grid[i][j] == 1 && rows[i] + cols[j] > 2)  // it's counted in both, so more than 2 means company
-                    ans++;
-        return ans;
+        }
+        for(int k=0;k<grid[0].length;k++){
+            if(grid[i][k]==1){
+                grid[i][j]=1;
+                return true;
+            }
+        }
+        return false;
+    }
+    public int countServers(int[][] grid) {
+        int count=0;
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid[0].length;j++){
+                if(grid[i][j]==1 && iscomunicate(grid,i,j)){
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }
