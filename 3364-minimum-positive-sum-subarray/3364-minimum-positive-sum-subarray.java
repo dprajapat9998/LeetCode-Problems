@@ -6,10 +6,8 @@ class Solution {
             int sum=0;
             for(int j=i;j<i+r && j<nums.size();j++){
                 sum+=nums.get(j);
-                if(count>=l){
-                    if(sum>0){
-                        ans=Math.min(ans,sum);
-                    }
+                if(count>=l && sum>0){
+                        ans=Math.min(ans,sum);   
                 }
                 count++;
             }
