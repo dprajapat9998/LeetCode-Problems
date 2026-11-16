@@ -17,8 +17,7 @@ class Solution {
             if(count!=0){
                 sb1.append(String.valueOf(ans));
             }
-            sb= new StringBuilder(sb1);
-            
+            sb= sb1;
 
         }
         return sb.toString();
