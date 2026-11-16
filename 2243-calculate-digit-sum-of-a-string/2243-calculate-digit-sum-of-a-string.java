@@ -2,25 +2,23 @@ class Solution {
     public String digitSum(String s, int k) {
         StringBuilder sb = new StringBuilder(s);
         while(k<sb.length()){
-            ArrayList<Integer> list = new ArrayList<>();
             int count=0;
             int ans=0;
+            StringBuilder sb1 = new StringBuilder();
             for(int i=0;i<sb.length();i++){
                 ans+=sb.charAt(i)-'0';
                 count++;
                 if(count==k){
-                    list.add(ans);
+                    sb1.append(String.valueOf(ans));
                     count=0;
                     ans=0;
                 }
             }
             if(count!=0){
-                list.add(ans);
+                sb1.append(String.valueOf(ans));
             }
-            sb= new StringBuilder();
-            for(int i=0;i<list.size();i++){
-                sb.append(String.valueOf(list.get(i)));
-            }
+            sb= new StringBuilder(sb1);
+            
 
         }
         return sb.toString();
