@@ -9,13 +9,13 @@ class Solution {
                 ans+=sb.charAt(i)-'0';
                 count++;
                 if(count==k){
-                    sb1.append(String.valueOf(ans));
+                    sb1.append(ans);
                     count=0;
                     ans=0;
                 }
             }
             if(count!=0){
-                sb1.append(String.valueOf(ans));
+                sb1.append(ans);
             }
             sb=sb1;
         }
